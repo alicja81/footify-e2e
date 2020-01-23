@@ -4,18 +4,13 @@ Feature: The Footify marketing site
   
   Scenario: Opening a Footify page
     Given I have loaded Footify page
-    When I can click on the Footify logo
-    Then site will reload
-
-  Scenario: Requesting an invate on Footify page
-    Given I have loaded Footify page
-    When I click button "Request an invate"
-    Then Sign up page will open in the new window 
+    Then I can see the Footify logo
+    And I can see "Play the beautiful game"
 
   Scenario: Fill in sign up form with valid user details
     Given I have loaded Footify sign up page
-    When I enter "alicjapycio@gmail.com" into the "Email Adress" field
-    And I type "Alicja" into "First Name" field
+    When I enter "alicjapycio@gmail.com" into the "EMAIL" field
+    And I enter "Alicja" into the "FNAME" field
     And I select "11 a-side" from "Type of team you play for" question
     And I select "Organised league" from "Competition" question
     When I click "Request Invate" button

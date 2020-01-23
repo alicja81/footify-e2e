@@ -1,13 +1,39 @@
 /// <reference types="Cypress" />
 
 import { Given, When } from "cypress-cucumber-preprocessor/steps";
- 
-const url = 'http://www.wearefootify.com/'
 
-Given('I have loaded Footify page', () => {
-  cy.visit(url)
+
+Given ('I have loaded Footify page', () => {
+    cy.visit('http://www.wearefootify.com/')
 })
 
-When('I click button "Request an invate"', () => {
-    cy.contains("Request an invate").click()
+Then ('I can see the Footify logo', () => {
+    cy.get('.top-logo-big').should('be.visible')
+})
+And ('I can see {string}', (text) => {
+    cy.contains(text)
+})
+
+Given ('I have loaded Footify sign up page', () => {
+    cy.visit('http://www.wearefootify.com/beta/index.htm')
+})
+
+
+When('I enter {string} into the {string} field', (value, inputName) => {
+    cy.get(`input[name="${inputName}"]`).type(value)
+})
+
+And ('I select "11 a-side" from "Type of team you play for" question',() => {
+    cy.get('input[name="MMERGE2"]').first().click()
+})
+
+And ('I select "Organised league" from "Competition" question', () => {
+    cy.get('input[name="MMERGE3"]').first().click()
+})
+
+When ('I click "Request Invate" button', () => {
+    cy.get('#mc-embedded-subscribe').click()
+})
+Then ('I can see {string}', (text) => {
+    cy.contains('text')
 })
