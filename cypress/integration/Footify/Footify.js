@@ -51,13 +51,11 @@ Then ('I can see {string}', (text) => {
 Given ('I have loaded Footify sign up page', () => {
     cy.visit('http://www.wearefootify.com/beta/index.htm')
 })
-
 When('I enter {string} into the {string} field', (value, inputName) => {
     cy.get(`input[name="${inputName}"]`).type(value)
 })
-
-When ('I click "Request Invite" button', (inputValue) => {
-    cy.get(`input[name="${inputValue}"]`).click({force: true})
+When ('I click {string} button', (inputValue) => {
+    cy.get(`input[value="${inputValue}"]`).click({force: true})
 })
 Then ('I can see {string}', (text) => {
     cy.contains('text')

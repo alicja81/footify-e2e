@@ -24,5 +24,5 @@ Feature: The Footify marketing site
   Scenario: Fill in sign up form with invalid user email
     Given I have loaded Footify sign up page
     When I enter "invalidemail" into the "EMAIL" field
-    When I click "Request Invite" button
+    When I click "Request invite" button
     Then I can see "Please enter a valid email address"
